@@ -36,14 +36,13 @@ public class MailAppServer {
                if (addresses != null) {
                   out.println(0);
                   out.println(addresses);
-                  out.close();
-
                } else {
                   out.println(1);
                }
             } catch(IOException e){
                out.println(2);
             }
+            clientSocket.shutdownOutput();
          }
       } catch (IOException e) {
          e.printStackTrace();
