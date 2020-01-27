@@ -7,6 +7,9 @@ import java.net.UnknownHostException;
 
 public class MailAppClient {
 
+   private static void requestURL(){
+   }
+
    public static void main(String[] args) {
 
       //Default connection
@@ -28,22 +31,18 @@ public class MailAppClient {
          BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
       ){
          System.out.println("Clientsocket created with local port: " + socket.getLocalPort());
-         System.out.print("Please input URL to extract email adresses: ");
 
          //3.1 Write to the stream according to server protocol
-         String userInput;
-         while((userInput = stdIn.readLine()) != null){
-            out.println(userInput);
-            System.out.println("Response " + in.readLine());
-         }
+         System.out.print("Please input URL to extract email adresses: ");
+         String userInput = stdIn.readLine();
+         out.println(userInput);
 
-/*         //3.2 Read from the stream according to the server protocol
+         //3.2 Read from the stream according to the server protocol
+         System.out.println("Respons: ");
          String responseLine;
          while((responseLine = in.readLine()) != null){
-            System.out.println("Mottat svar fra server: " + responseLine);
-         }*/
-
-
+            System.out.println(responseLine);
+         }
       } catch (IOException e) {
          e.printStackTrace();
       }

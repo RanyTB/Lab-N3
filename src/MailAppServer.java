@@ -26,7 +26,8 @@ public class MailAppServer {
          String inputLine;
          while((inputLine = in.readLine()) != null){
             System.out.println("Request: " + inputLine);
-            out.println(inputLine + '\n');
+            out.println(inputLine);
+            out.close();
          }
       } catch (IOException e) {
          e.printStackTrace();
