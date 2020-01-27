@@ -36,12 +36,27 @@ public class MailAppClient {
          System.out.print("Please input URL to extract email adresses: ");
          String userInput = stdIn.readLine();
          out.println(userInput);
+         System.out.println("Waiting for server... \n");
 
          //3.2 Read from the stream according to the server protocol
-         System.out.println("Respons: ");
-         String responseLine;
-         while((responseLine = in.readLine()) != null){
-            System.out.println(responseLine);
+         String responseLine = in.readLine();
+
+         switch (responseLine){
+            case "0": {
+               System.out.println("Found the following addresses:");
+               while((responseLine = in.readLine() )!= null){
+               System.out.println(responseLine);
+               }
+               break;
+            }
+            case "1": {
+               System.out.println("!!!No email address found on the page!!!");
+               break;
+            }
+            case "2": {
+               System.out.println("!!!Server couldn’t find the web page!!!");
+               break;
+            }
          }
       } catch (IOException e) {
          e.printStackTrace();
