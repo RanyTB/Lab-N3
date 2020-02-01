@@ -18,6 +18,7 @@ public class MailAddressService {
     * @throws MalformedURLException if URL is not correctly formatted
     */
    public MailAddressService(String URI) throws MalformedURLException {
+      if(!URI.startsWith("http")) URI = "http://" + URI;
       this.url = new URL(URI);
    }
 
